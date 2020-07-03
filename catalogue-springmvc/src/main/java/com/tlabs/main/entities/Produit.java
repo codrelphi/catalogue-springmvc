@@ -1,4 +1,4 @@
-package com.tlabs.entities;
+package com.tlabs.main.entities;
 
 import java.io.Serializable;
 

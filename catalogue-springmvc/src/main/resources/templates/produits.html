@@ -33,11 +33,9 @@
 					</tr>
 				</table>
 				<ul class="nav nav-pills">
-					<li class="nav-link"><a href="#">1</a></li>
-					<li class="nav-link"><a href="#">2</a></li>
-					<li class="nav-link"><a href="#">3</a></li>
-					<li class="nav-link"><a href="#">4</a></li>
-					<li class="nav-link"><a href="#">5</a></li>
+					<li class="nav-item" th:each="page,status:${pages}">
+						<a th:class="${currentPage==status.index}?'nav-link active':'nav-link'" th:href="@{/index(page=${status.index})}" th:text="${status.index}"></a>
+					</li>
 				</ul>
 			</div>
 		</div>

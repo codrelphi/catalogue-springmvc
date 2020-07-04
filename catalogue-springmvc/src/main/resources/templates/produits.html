@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Catalogue - Produits</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+<link rel="stylesheet" th:href="@{css/style.css}"/>
+</head>
+<body>
+	<div class="container">
+		<div class="card mt-3">
+			<div class="card-header">Liste des produits</div>
+			<div class="card-body">
+				<label for="motCle"><strong>Mot Clé:</strong></label>
+				<input type="text" id="motCle" name="motCle" placeholder="HP"/>
+				<button class="btn btn-primary">Chercher</button>
+			</div>
+			<div class="card-body">
+				<table class="table table-sm table-bordered table-striped ">
+					<tr>
+						<th>ID</th>
+						<th>Désignation</th>
+						<th>Prix</th>
+						<th>Quantité</th>
+						<th>Action</th>
+					</tr>
+					<tr th:each="p:${produits}">
+						<td th:text="${p.id}"></td>
+						<td th:text="${p.designation}"></td>
+						<td th:text="${p.prix}"></td>
+						<td th:text="${p.quantite}"></td>
+						<td><a href="#">Delete</a></td>
+					</tr>
+				</table>
+				<ul class="nav nav-pills">
+					<li class="nav-link"><a href="#">1</a></li>
+					<li class="nav-link"><a href="#">2</a></li>
+					<li class="nav-link"><a href="#">3</a></li>
+					<li class="nav-link"><a href="#">4</a></li>
+					<li class="nav-link"><a href="#">5</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

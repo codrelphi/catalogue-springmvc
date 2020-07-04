@@ -20,7 +20,7 @@ public class Produit implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	public Produit(Long id, String designation, double prix, int quantite) {
 		super();
 		this.id = id;
@@ -28,7 +28,7 @@ public class Produit implements Serializable {
 		this.prix = prix;
 		this.quantite = quantite;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}

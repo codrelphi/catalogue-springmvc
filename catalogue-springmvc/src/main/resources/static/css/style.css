@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.card-header {
+	background-color: blue;
+	color: white;
+}
+
+.card {
+	border: 1px solid blue;
+}

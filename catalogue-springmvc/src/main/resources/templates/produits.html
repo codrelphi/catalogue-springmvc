@@ -11,12 +11,14 @@
 		<div class="card mt-3">
 			<div class="card-header">Liste des produits</div>
 			<div class="card-body">
-				<label for="motCle"><strong>Mot Clé:</strong></label>
-				<input type="text" id="motCle" name="motCle" placeholder="HP"/>
-				<button class="btn btn-primary">Chercher</button>
+				<form th:action="@{/index}" method="get">
+					<label for="motCle"><strong>Mot Clé:</strong></label> 
+					<input type="text" id="motCle" name="motCle" placeholder="HP" th:value="${motCle}"/>
+					<button type="submit" class="btn btn-primary">Chercher</button>
+				</form>
 			</div>
 			<div class="card-body">
-				<table class="table table-sm table-bordered table-striped ">
+				<table class="table table-sm table-bordered table-striped">
 					<tr>
 						<th>ID</th>
 						<th>Désignation</th>
@@ -34,7 +36,7 @@
 				</table>
 				<ul class="nav nav-pills">
 					<li class="nav-item" th:each="page,status:${pages}">
-						<a th:class="${currentPage==status.index}?'nav-link active':'nav-link'" th:href="@{/index(page=${status.index})}" th:text="${status.index}"></a>
+						<a th:class="${currentPage==status.index}?'nav-link active':'nav-link'" th:href="@{/index(motCle=${motCle}, page=${status.index})}" th:text="${status.index}"></a>
 					</li>
 				</ul>
 			</div>

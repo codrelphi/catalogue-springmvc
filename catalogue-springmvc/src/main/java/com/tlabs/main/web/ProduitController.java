@@ -20,12 +20,18 @@ public class ProduitController {
 	ProduitRepository produitRepository;
 	
 	@GetMapping(value= {"/", "/index"})
-	public String index(Model model, @RequestParam(name="page", defaultValue="0") int page) {
+	public String chercher(Model model, 
+			@RequestParam(name="page", defaultValue="0") int page,
+			@RequestParam(name="motCle", defaultValue="") String mc) {
 		//List<Produit> produits = produitRepository.findAll();
-		Page<Produit> pageProduits = produitRepository.findAll(PageRequest.of(page, 10));
+		//Page<Produit> pageProduits = produitRepository.findAll(PageRequest.of(page, 10));
+		Page<Produit> pageProduits = produitRepository.findByDesignationContains(mc, PageRequest.of(page, 10));
 		model.addAttribute("produits", pageProduits.getContent());
 		model.addAttribute("pages", new int[pageProduits.getTotalPages()]);
 		model.addAttribute("currentPage", page);
+		model.addAttribute("motCle", mc);
 		return "produits";
 	}
+	
+	
 }
